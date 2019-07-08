@@ -6,7 +6,7 @@
 	O banco de dados será criado com o nome de database_teste e a tabela como products, se quiser pode alterar em create_db.
 	Rode o comando npm install para adicionar os arquivos requeridos pelo bootstrap
 
-Pastas
+* Pastas
 	Assets -- Images - Css - Js
 	Class  -- Db.class.php - Validator.class.php - Product.class.php
 	Layout -- Footer.php - Menu.php 
