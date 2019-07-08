@@ -15,8 +15,6 @@ if (isset($_POST) && !empty($_POST)) {
 
     Validator::checkRequest($request);
     
-     
-
     if (Validator::checkRequest($request)) { 
     
 	    $request['image'] = Validator::setResource($request['image']); 

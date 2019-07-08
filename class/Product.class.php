@@ -18,20 +18,13 @@ class Product
 		    $this->id = $request['id'];
 		}
 
-		if (isset($request['name']) && is_string($request['name']) && !empty($request['name'])) { 
-		    $this->name = $request['name'];
-		}
+		$this->name = $request['name'];
+		
+		$this->price = $request['price'];
+		
+		$this->description = $request['description'];
 
-		if (isset($request['price']) && !empty($request['price'])) { 
-		    $this->price = (float) $request['price'];
-		}
-
-		if (isset($request['description']) && is_string($request['description']) && !empty($request['description'])) { 
-		    $this->description = $request['description'];
-		}
-        
-
-		if (isset($request['image']) && is_string($request['image']) && !empty($request['image'])) { 
+		if (isset($request['image'])) { 
 		    $this->setImage($request['image']);
 		}
 

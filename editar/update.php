@@ -6,6 +6,7 @@
     
     $id = (isset($_GET['id']) && !empty($_GET['id'])) ? (int) addslashes($_GET['id']) : '';
 
+    
     if (isset($_POST) && !empty($_POST)) {
         
     	$request = [
@@ -13,17 +14,17 @@
 	        'name'        => (string) $_POST['name'],
 		    'price'       => (float)  $_POST['price'],
 		    'description' => (string) $_POST['description'],
-		    'image'       => (string) (Validator::checkImage($_FILES['image']) ?: $_POST['currentImage']),
-		    'success'     => (bool)   true 
+		    'image'       => Validator::checkImage($_FILES['image']) ? Validator::setResource((array) $_FILES['image']) : $_POST['currentImage'],
 	    ]; 
 	    
 	    $Product = new Product($request);
-    	
-    	if(save($Product, 'update')) {
+
+    	if(save($Product, $id)) {
 
     		Validator::setMsg('Produto atualizado com successo!');   
     	
     	} 
+       
     }
 
     $product = show($id); 

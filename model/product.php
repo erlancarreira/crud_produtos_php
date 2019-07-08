@@ -1,23 +1,13 @@
 <?php 
 require_once('../config.php');
 
-function save(Product $product, $method = 'insert') {
+function save(Product $product, $id = []) {
 	
 	$db = new DB();
     
-	if ($method === 'insert') {
-
-		$db->query("INSERT INTO {$product->table} (name, price, description, url_image) VALUES (:name, :price, :description, :image)", 
-			[
-			    ':name'        => $product->getName(),
-			    ':price'       => $product->getPrice(),
-			    ':description' => $product->getDescription(),
-			    ':image'       => $product->getImage()
-			]
-		);  
-
-	} else {
-
+	if ($id) {
+        
+        
 		$db->query("UPDATE products SET name = :name, price = :price, description = :description, url_image = :image WHERE id = :id", [
 		        ':id'          =>  $product->getId(),
 		        ':name'        =>  $product->getName(),
@@ -27,6 +17,16 @@ function save(Product $product, $method = 'insert') {
 		    ]
 		);
 
+	} else {
+
+		$db->query("INSERT INTO {$product->table} (name, price, description, url_image) VALUES (:name, :price, :description, :image)", 
+			[
+			    ':name'        => $product->getName(),
+			    ':price'       => $product->getPrice(),
+			    ':description' => $product->getDescription(),
+			    ':image'       => $product->getImage()
+			]
+		);  
     }
    
 	return !! $db->getCount(); 		
