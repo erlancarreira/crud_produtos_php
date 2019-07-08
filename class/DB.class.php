@@ -42,7 +42,6 @@ class DB
     public function query($rowQuery, $paramets = array()) 
     {
     	
-    	//var_dump($paramets); exit;
         $stmt = self::$conn->prepare($rowQuery);
      
     	$this->setParams($stmt, $paramets);
@@ -72,25 +71,10 @@ class DB
 
     public function getCount() 
     {
-        // $stmt = self::$conn->prepare($rowQuery);
-
-        // $this->select("SELECT found_rows() as total");
-
-        // $stmt->execute();
-
-        // return $stmt->fetch();
-
         return $this->count;
     }
 
-    private function config() {
-        return [ 
-          'host' => 'localhost', 
-          'dbname' => 'database_teste', 
-          'username' => 'root', 
-          'pass' => ''
-        ];
-    }
+    
 
     
 }
