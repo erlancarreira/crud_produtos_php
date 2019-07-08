@@ -2,8 +2,8 @@ Crud feito em php
 
 Instruções
 
-Espefique as configurações do seu servidor class/DB.class.php.
-O banco de dados será criado com o nome de database_teste, se quiser pode alterar em create_db.
+Espefique o username e password do seu servidor em class/DB.class.php.
+O banco de dados será criado com o nome de database_teste e a tabela como products, se quiser pode alterar em create_db.
 Rode o comando npm install para adicionar os arquivos requeridos pelo bootstrap
 
 Pastas
