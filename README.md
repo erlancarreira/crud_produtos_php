@@ -7,10 +7,11 @@
 	Rode o comando npm install para adicionar os arquivos requeridos pelo bootstrap
 
 * Pastas
-	Assets -- Images - Css - Js
-	Class  -- Db.class.php - Validator.class.php - Product.class.php
-	Layout -- Footer.php - Menu.php 
-	Model  -- Product - Save, Delete, Show, Paginate
+
+ 	<p>Assets -- Images - Css - Js</p>
+	<p>Class  -- Db.class.php - Validator.class.php - Product.class.php</p>
+	<p>Layout -- Footer.php - Menu.php </p>
+	<p>Model  -- Product - Save, Delete, Show, Paginate </p>
 
 
 
