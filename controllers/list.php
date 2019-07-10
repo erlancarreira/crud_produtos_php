@@ -4,8 +4,6 @@
     
     $db = new DB();
 
-    
-
     $page   = (isset($_GET['page']) && !empty($_GET['page'])) ? (int) addslashes($_GET['page']) : 1;
     $search = (isset($_GET['search']) && !empty($_GET['search'])) ? (string) addslashes($_GET['search']) : '';   
 

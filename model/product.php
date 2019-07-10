@@ -1,5 +1,5 @@
 <?php 
-require_once('../config.php');
+require_once(__DIR__.'/../config.php');
 
 function save(Product $product, $id = []) {
 	
@@ -7,8 +7,7 @@ function save(Product $product, $id = []) {
     
 	if ($id) {
         
-        
-		$db->query("UPDATE products SET name = :name, price = :price, description = :description, url_image = :image WHERE id = :id", [
+		$db->query("UPDATE products SET name = :name, price = :price, description = :description, image = :image WHERE id = :id", [
 		        ':id'          =>  $product->getId(),
 		        ':name'        =>  $product->getName(),
 		        ':price'       =>  $product->getPrice(),
@@ -19,7 +18,7 @@ function save(Product $product, $id = []) {
 
 	} else {
 
-		$db->query("INSERT INTO {$product->table} (name, price, description, url_image) VALUES (:name, :price, :description, :image)", 
+		$db->query("INSERT INTO {$product->table} (name, price, description, image) VALUES (:name, :price, :description, :image)", 
 			[
 			    ':name'        => $product->getName(),
 			    ':price'       => $product->getPrice(),
@@ -36,7 +35,9 @@ function show($id) {
     
     $db = new DB();
 
-    return $db->select("SELECT * FROM products WHERE id = :id", [':id' => $id]); 
+    $products = $db->select("SELECT * FROM products WHERE id = :id", [':id' => $id]);
+     
+    return ($db->getCount() > 0) ? new Product($products[0]) : $products;  
 }
 
 function delete($id) {

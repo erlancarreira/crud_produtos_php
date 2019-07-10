@@ -1,4 +1,4 @@
-<?php require_once('store.php'); ?>
+<?php require_once(__DIR__.'/../controllers/store.php'); ?>
 
 <!doctype html>
 <html lang="pt-br">
@@ -64,7 +64,7 @@
 			</form>
 		</div>
 
-	    <?php include_once('../layout/footer.php'); ?>
+	    <?php include_once(__DIR__.'/../layout/footer.php'); ?>
 	    <!-- Optional JavaScript -->
 	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	    <script src="../node_modules/jquery/dist/jquery.slim.min.js" ></script>

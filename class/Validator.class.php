@@ -1,5 +1,5 @@
 <?php 
-require_once('../config.php');
+require_once(__DIR__.'/../config.php');
 
 
 class Validator
@@ -36,17 +36,17 @@ class Validator
                 break;
 	    	
 	    	case !isset($request['price']) || empty($request['price']):
-	    		Validator::setMsg('O campo preco eh requerido!', 'alert-danger'); 
+	    		Validator::setMsg('O campo preço é requerido!', 'alert-danger'); 
 	    		$success = false;
                 break;
 
 	    	case !isset($request['description']) || empty($request['description']):
-	    		Validator::setMsg('A descricao eh requerida!', 'alert-danger'); 
+	    		Validator::setMsg('A descrição é requerida!', 'alert-danger'); 
 	    		$success = false;
                 break;	
 
             case !self::checkImage($request['image']):
-                Validator::setMsg('Imagem nao enviada ou formato nao permitido', 'alert-danger'); 
+                Validator::setMsg('Imagem não enviada ou formato não permitido', 'alert-danger'); 
                 $success = false;
                 break;         
 	    }    
@@ -88,7 +88,6 @@ class Validator
             return $image_id;
         }
     }
-
     
 
 }

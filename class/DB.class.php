@@ -5,16 +5,20 @@ class DB
 	
 	private static $conn;
 
-
 	
-	function __construct( ) { DB::getConn(); }
+	function __construct() { 
+        
+        if (!defined('URL')) { define('URL', "http://".$_SERVER['HTTP_HOST']); }
+        
+        DB::getConn(); 
+    }
 
 	public static function getConn() {
 		
 		if (!isset(self::$conn)) {   
 		    
 		    try {
-		    		self::$conn = new PDO("mysql:host=localhost;dbname=database_teste",'root','',[\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]);
+		    		self::$conn = new PDO("mysql:host=localhost;dbname=shop",'root','',[\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]);
 		    	} catch (Exception $e) {
 		    	
 		    	print "Erro: ".$e->getMessage(); 	
@@ -73,6 +77,9 @@ class DB
     {
         return $this->count;
     }
+    
+
+
 
     
 

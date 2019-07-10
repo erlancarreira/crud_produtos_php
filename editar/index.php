@@ -1,4 +1,4 @@
-<?php require_once('update.php'); ?>    
+<?php require_once(__DIR__.'/../controllers/update.php'); ?>
 
 <!doctype html>
 <html lang="pt-br">
@@ -36,28 +36,29 @@
 		
 	        <?php endif ?>
 
-	        <?php if (count($product[0]) > 0):  ?> 
+	        <?php if ($product):  ?> 
+
 	        <form method="POST" enctype="multipart/form-data" >  
 	        	<div class="row mb-3">
 	        		<div class="col-md-4">
-			        	<img src="../assets/images/<?= $product[0]['url_image'] ?? 'product.jpg'; ?>" class="card-img-top" alt="..." >
+			        	<img src="../assets/images/<?= $product->getImage() ?? 'product.jpg'; ?>" class="card-img-top" alt="..." >
 					</div>   
 					<div class="col-md-7"> 
 					    <div class="form-group">
-					        <input type="text" class="form-control" name="name" value="<?= $product[0]['name']; ?>">
+					        <input type="text" class="form-control" name="name" value="<?= $product->getName(); ?>">
 					    </div>
 					    
 					    <div class="form-group">
-					        <input type="text" class="form-control" id="price" name="price" value="<?= $product[0]['price']; ?>">
+					        <input type="text" class="form-control" id="price" name="price" value="<?= $product->getPrice(); ?>">
 					    </div>
 					    
 					    <div class="form-group">
-					        <textarea class="form-control" name="description" rows="6"><?= $product[0]['description']; ?></textarea> 
+					        <textarea class="form-control" name="description" rows="6"><?= $product->getDescription(); ?></textarea> 
 					    </div> 
 
 					    <div class="form-group">
-						    <input type="file" class="form-control-file" id="image" name="image" src="<?= $product[0]['url_image']; ?>">
-						    <input type="hidden" name="currentImage" value="<?= $product[0]['url_image']; ?>">
+						    <input type="file" class="form-control-file" name="image_file" id="image" src="<?= $product->getImage(); ?>">
+						    <input type="hidden" name="image" value="<?= $product->getImage(); ?>">
 					    </div>
 				    </div>
 			    </div>
@@ -70,7 +71,7 @@
 			<?php endif ?>	
 		</div>
 
-	    <?php include_once('../layout/footer.php'); ?>
+	    <?php include_once(__DIR__.'/../layout/footer.php'); ?>
 
 
 	    <!-- Optional JavaScript -->

@@ -1,17 +1,43 @@
-* Crud feito em php
+# Simples Crud em Php 
 
-* Instruções
+- Instruções
+   - Importe o banco de dados em dump/shop.sql ou rode a url create_db mas antes altere o arquivo com seu host, username e password.
+   - Especifique o host, username e password do seu servidor em class/DB.class.php.
+   - Rode o comando npm install para adicionar os arquivos requeridos pelo bootstrap
 
-	Especifique o username e password do seu servidor em class/DB.class.php.
-	O banco de dados será criado com o nome de database_teste e a tabela como products, se quiser pode alterar em create_db.
-	Rode o comando npm install para adicionar os arquivos requeridos pelo bootstrap
+# Estrutura
 
-* Pastas
-
- 	<p>Assets -- Images - Css - Js</p>
-	<p>Class  -- Db.class.php - Validator.class.php - Product.class.php</p>
-	<p>Layout -- Footer.php - Menu.php </p>
-	<p>Model  -- Product - Save, Delete, Show, Paginate </p>
+- Pastas
+ 	- Assets 
+        - Images 
+        - Css 
+        - Js
+	- Class  
+        - Db.class.php 
+        - Validator.class.php 
+        - Product.class.php
+	- Layout 
+        - Footer.php 
+        - Menu.php 
+	- Model  
+        - Product 
+            - Save 
+            - Delete 
+            - Show  
+            - Paginate
+    - Controllers
+        - list
+        - store
+        - update
+    - Views
+        - /Cadastrar
+        - /Listar
+        - /Editar
+    - Layouts
+        - menu.php
+        - footer.php 
+    - Dump
+        - shop.sql                    
 
 
 

@@ -1,5 +1,4 @@
 <?php 
-print_r(include_once("create_db.php"));
 
-header("Location: listar");
+header("Location: ".$_SERVER['HTTP_HOST'].'/listar');
 

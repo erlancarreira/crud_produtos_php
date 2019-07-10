@@ -3,18 +3,22 @@
 /**
  * 
  */
-class Product 
+class Product
 {
 	private $name;
 	private $price;
 	private $description;
 	private $image;
-
+	
+      
 	public $table = 'products';
 
-	function __construct($request = []) 
+	function __construct(array $request = []) 
 	{
+		
+
 		if (isset($request['id']) && !empty($request['id'])) { 
+		   
 		    $this->id = $request['id'];
 		}
 
@@ -23,11 +27,11 @@ class Product
 		$this->price = $request['price'];
 		
 		$this->description = $request['description'];
+ 
+		$this->image = $request['image'];
 
-		if (isset($request['image'])) { 
-		    $this->setImage($request['image']);
-		}
 
+		
 	}
 
 	public function getId() 
@@ -58,7 +62,7 @@ class Product
 	public function getImage() 
 	{
 		return $this->image;
-	}
+	}	
 }
 
 ?>

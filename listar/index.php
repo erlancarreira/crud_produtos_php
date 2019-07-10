@@ -1,4 +1,4 @@
-<?php require_once('list.php'); ?>
+<?php require_once(__DIR__.'/../controllers/list.php'); ?>
 
 <!doctype html>
 <html lang="pt-br">
@@ -20,7 +20,8 @@
     <?php include_once(__DIR__.'/../layout/menu.php'); ?>  
    
 	    <div class="container mt-5 mb-5"> 
-		    <h4 class="mb-3">Listar Produtos</h4>
+		    
+	        <h4 class="mb-3">Listar Produtos</h4>
 	        
 	        <?php if (isset($_SESSION['msg']) && !empty($_SESSION['msg']['text'])): ?>
 	        
@@ -32,11 +33,11 @@
 			        <span aria-hidden="true">&times;</span>
 			    </button>
 			
-			</div>
-		
+			</div>		
 	        <?php endif ?>
 	        
 	        <?php if (count($products['rows'])  > 0):  ?> 
+            
 
 	        <form method="POST">	
 				<div class="row mb-5">
@@ -45,7 +46,7 @@
 					
 					<div class="col-md-4 mb-3">
 						<div class="card">
-						    <img src="../assets/images/<?= $prod['url_image']; ?>" class="card-img-top" alt="Meu produto">
+						    <img src="../assets/images/<?= $prod['image']; ?>" class="card-img-top" alt="Meu produto">
 						    <div class="card-body">
 						        <h5 class="card-title"><?= $prod['name']; ?></h5>
 						        <p class="card-text"><?= $prod['description']; ?></p>
