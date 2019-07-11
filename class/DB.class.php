@@ -8,8 +8,6 @@ class DB
 	
 	function __construct() { 
         
-        if (!defined('URL')) { define('URL', "http://".$_SERVER['HTTP_HOST']); }
-        
         DB::getConn(); 
     }
 

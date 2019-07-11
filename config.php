@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('URL')) { define('URL', "http://".$_SERVER['HTTP_HOST']); }
+
 spl_autoload_register(function($value) {
     
     $class = __DIR__.DIRECTORY_SEPARATOR."class".DIRECTORY_SEPARATOR.$value.".class.php";
