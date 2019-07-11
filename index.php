@@ -1,4 +1,4 @@
 <?php 
 
-header("Location: ".$_SERVER['HTTP_HOST'].'/listar');
+header("Location: /listar");
 
