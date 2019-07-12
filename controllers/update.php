@@ -24,7 +24,6 @@
     	if (save($product, $id)) {     
 
     		Validator::setMsg('Produto atualizado com successo!');  
-            echo "<script> window.location.href = ".$_SERVER['HTTP_HOST']." </script>";
     	} 
        
     }
