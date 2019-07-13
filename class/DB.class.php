@@ -7,20 +7,34 @@ class DB
 
 	
 	function __construct() { 
-        
-        DB::getConn(); 
+       
+        DB::getConn();
+
     }
 
 	public static function getConn() {
 		
 		if (!isset(self::$conn)) {   
-		    
+
 		    try {
-		    		self::$conn = new PDO("mysql:host=localhost;dbname=shop",'root','',[\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]);
-		    	} catch (Exception $e) {
-		    	
-		    	print "Erro: ".$e->getMessage(); 	
-		    }		    
+	    		self::$conn = new PDO( 
+                    env('DB_DRIVER')
+                    .":host=".
+                    env('DB_HOST')
+                    .":".
+                    env('DB_PORT')
+                    .";dbname=".
+                    env('DB_NAME'), 
+                    env('DB_USERNAME'), 
+                    env('DB_PASSWORD'), 
+                    [\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]
+                );
+
+	    	} catch (Exception $e) {
+	    	
+	    	    print "Erro: ".$e->getMessage(); 	
+		    
+            }		    
 	    }
 
 	    return self::$conn; 	
@@ -74,14 +88,7 @@ class DB
     public function getCount() 
     {
         return $this->count;
-    }
-    
-
-
-
-    
-
-    
+    }    
 }
 
 
